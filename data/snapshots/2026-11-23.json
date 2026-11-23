@@ -1,0 +1,306 @@
+{
+  "generated_at": "2026-11-23T03:44:11+00:00",
+  "market_context": {
+    "SPY": {
+      "last": 689.81,
+      "change_5d_pct": -8.5581,
+      "above_sma50": false
+    },
+    "QQQ": {
+      "last": 608.45,
+      "change_5d_pct": -10.5076,
+      "above_sma50": false
+    },
+    "^VIX": {
+      "last": 35.89,
+      "change_5d_pct": 85.9586,
+      "above_sma50": true
+    }
+  },
+  "tickers": {
+    "INTC": {
+      "symbol": "INTC",
+      "price_source": "twelvedata",
+      "technicals": {
+        "price": 51.28,
+        "change_1d_pct": -7.9684,
+        "change_5d_pct": -14.0463,
+        "change_20d_pct": -41.0304,
+        "sma20": 64.903,
+        "sma50": 90.2242,
+        "sma200": 87.5539,
+        "above_sma20": false,
+        "above_sma50": false,
+        "above_sma200": false,
+        "rsi14": 28.0292,
+        "macd": -10.3939,
+        "macd_signal": -10.762,
+        "macd_hist": 0.368,
+        "macd_hist_prev": 0.4034,
+        "bollinger_pct_b": 0.27,
+        "atr14": 4.32,
+        "realized_vol_20d": 1.4275,
+        "volume_vs_20d_avg": 1.3518,
+        "high_52w": 140.94,
+        "low_52w": 33.62
+      },
+      "options": {
+        "expiry": "2026-12-11",
+        "days_to_expiry": 18,
+        "all_expiries": [
+          "2026-11-27",
+          "2026-12-04",
+          "2026-12-11",
+          "2026-12-18",
+          "2026-12-24",
+          "2026-12-31",
+          "2027-01-15",
+          "2027-02-19",
+          "2027-03-19",
+          "2027-04-16",
+          "2027-06-17",
+          "2027-07-16"
+        ],
+        "atm_strike": 51.0,
+        "atm_iv": 1.0198,
+        "atm_call_price": 6.68,
+        "atm_put_price": 4.3,
+        "expected_move_dollars": 10.98,
+        "expected_move_pct": 21.4119,
+        "put_call_volume_ratio": 1.208,
+        "put_call_oi_ratio": 0.3009,
+        "skew_otm_put_minus_call_iv": 0.0481,
+        "max_pain": 60.0,
+        "unusual_activity": [
+          {
+            "type": "put",
+            "strike": 47.0,
+            "volume": 1115,
+            "oi": 107
+          }
+        ],
+        "iv_to_realized_vol": 0.7144
+      },
+      "next_earnings": [
+        "2027-01-28"
+      ],
+      "recent_headlines": []
+    },
+    "NVDA": {
+      "symbol": "NVDA",
+      "price_source": "twelvedata",
+      "technicals": {
+        "price": 125.53,
+        "change_1d_pct": -14.0088,
+        "change_5d_pct": -22.9168,
+        "change_20d_pct": -40.4958,
+        "sma20": 181.457,
+        "sma50": 207.0004,
+        "sma200": 203.3454,
+        "above_sma20": false,
+        "above_sma50": false,
+        "above_sma200": false,
+        "rsi14": 15.0462,
+        "macd": -19.8327,
+        "macd_signal": -15.2045,
+        "macd_hist": -4.6282,
+        "macd_hist_prev": -3.7146,
+        "bollinger_pct_b": -0.0128,
+        "atr14": 12.8414,
+        "realized_vol_20d": 0.6904,
+        "volume_vs_20d_avg": 2.1803,
+        "high_52w": 239.24,
+        "low_52w": 125.53
+      },
+      "options": {
+        "expiry": "2026-12-11",
+        "days_to_expiry": 18,
+        "all_expiries": [
+          "2026-11-23",
+          "2026-11-25",
+          "2026-11-27",
+          "2026-11-30",
+          "2026-12-02",
+          "2026-12-04",
+          "2026-12-11",
+          "2026-12-18",
+          "2026-12-24",
+          "2026-12-31",
+          "2027-01-15",
+          "2027-02-19"
+        ],
+        "atm_strike": 125.0,
+        "atm_iv": 0.9092,
+        "atm_call_price": 10.87,
+        "atm_put_price": 10.33,
+        "expected_move_dollars": 21.2,
+        "expected_move_pct": 16.8884,
+        "put_call_volume_ratio": 0.6236,
+        "put_call_oi_ratio": 0.6302,
+        "skew_otm_put_minus_call_iv": 0.0085,
+        "max_pain": 170.0,
+        "unusual_activity": [
+          {
+            "type": "call",
+            "strike": 150.0,
+            "volume": 6001,
+            "oi": 1175
+          },
+          {
+            "type": "call",
+            "strike": 160.0,
+            "volume": 5830,
+            "oi": 3101
+          },
+          {
+            "type": "call",
+            "strike": 145.0,
+            "volume": 4498,
+            "oi": 483
+          },
+          {
+            "type": "put",
+            "strike": 120.0,
+            "volume": 5778,
+            "oi": 3077
+          },
+          {
+            "type": "put",
+            "strike": 70.0,
+            "volume": 5204,
+            "oi": 118
+          },
+          {
+            "type": "put",
+            "strike": 140.0,
+            "volume": 3358,
+            "oi": 3029
+          }
+        ],
+        "iv_to_realized_vol": 1.3169
+      },
+      "next_earnings": [
+        "2026-11-17"
+      ],
+      "recent_headlines": []
+    },
+    "AAPL": {
+      "symbol": "AAPL",
+      "price_source": "twelvedata",
+      "technicals": {
+        "price": 342.56,
+        "change_1d_pct": -1.9043,
+        "change_5d_pct": -3.8482,
+        "change_20d_pct": -1.4868,
+        "sma20": 347.477,
+        "sma50": 341.8072,
+        "sma200": 303.2406,
+        "above_sma20": false,
+        "above_sma50": true,
+        "above_sma200": true,
+        "rsi14": 46.4463,
+        "macd": 2.672,
+        "macd_signal": 3.4321,
+        "macd_hist": -0.7601,
+        "macd_hist_prev": -0.0785,
+        "bollinger_pct_b": 0.2994,
+        "atr14": 9.3664,
+        "realized_vol_20d": 0.2798,
+        "volume_vs_20d_avg": 1.6175,
+        "high_52w": 356.27,
+        "low_52w": 246.63
+      },
+      "options": {
+        "expiry": "2026-12-11",
+        "days_to_expiry": 18,
+        "all_expiries": [
+          "2026-11-23",
+          "2026-11-25",
+          "2026-11-27",
+          "2026-11-30",
+          "2026-12-02",
+          "2026-12-04",
+          "2026-12-11",
+          "2026-12-18",
+          "2026-12-24",
+          "2026-12-31",
+          "2027-01-15",
+          "2027-02-19"
+        ],
+        "atm_strike": 345.0,
+        "atm_iv": 0.3551,
+        "atm_call_price": 9.35,
+        "atm_put_price": 10.55,
+        "expected_move_dollars": 19.9,
+        "expected_move_pct": 5.8092,
+        "put_call_volume_ratio": 2.1293,
+        "put_call_oi_ratio": 0.9677,
+        "skew_otm_put_minus_call_iv": 0.0705,
+        "max_pain": 350.0,
+        "unusual_activity": [
+          {
+            "type": "put",
+            "strike": 330.0,
+            "volume": 1297,
+            "oi": 753
+          }
+        ],
+        "iv_to_realized_vol": 1.2691
+      },
+      "next_earnings": [
+        "2027-01-28"
+      ],
+      "recent_headlines": []
+    }
+  },
+  "quant_signals": {
+    "INTC": {
+      "score": -0.175,
+      "lean": "NO TRADE",
+      "reasons": [
+        "-0.15: price below 20 & 50 SMA (downtrend)",
+        "-0.05: below 200 SMA",
+        "-0.05: SPY below 50 SMA",
+        "VIX 35.9 elevated: confidence haircut"
+      ],
+      "warnings": [
+        "earnings scheduled ['2027-01-28']: check if inside expiry window"
+      ]
+    },
+    "NVDA": {
+      "score": -0.14,
+      "lean": "NO TRADE",
+      "reasons": [
+        "-0.15: price below 20 & 50 SMA (downtrend)",
+        "-0.05: below 200 SMA",
+        "-0.1: MACD histogram negative and falling",
+        "+0.15: RSI 15 oversold",
+        "-0.05: SPY below 50 SMA",
+        "VIX 35.9 elevated: confidence haircut"
+      ],
+      "warnings": [
+        "earnings scheduled ['2026-11-17']: check if inside expiry window"
+      ]
+    },
+    "AAPL": {
+      "score": -0.07,
+      "lean": "NO TRADE",
+      "reasons": [
+        "+0.05: above 200 SMA",
+        "-0.1: MACD histogram negative and falling",
+        "-0.05: RSI 46 bearish range",
+        "+0.05: P/C volume 2.13 very high (contrarian bullish)",
+        "-0.05: SPY below 50 SMA",
+        "VIX 35.9 elevated: confidence haircut"
+      ],
+      "warnings": [
+        "earnings scheduled ['2027-01-28']: check if inside expiry window"
+      ]
+    }
+  },
+  "price_sources": {
+    "INTC": "twelvedata",
+    "NVDA": "twelvedata",
+    "AAPL": "twelvedata"
+  }
+}

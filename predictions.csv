@@ -1,1 +1,4 @@
 date,symbol,decision,confidence,entry_price,horizon_days,suggested_contract,rationale,exit_price,move_pct,outcome
+2026-11-23,INTC,NO TRADE,0.30,51.28,5,none (watch: PUT on failed bounce toward 58-60),"TEST RUN. Strong downtrend (below all SMAs, guide cut, class action, NVDA stake sale) but -41% in 20d, RSI 28, VIX 36: chasing puts is poor risk/reward.",,,
+2026-11-23,NVDA,NO TRADE,0.35,125.53,5,none (watch: Dec11 135/150 call debit spread only on reclaim of 140),"TEST RUN. RSI 15 and below lower Bollinger (oversold) vs SEC accounting probe, CEO change, broken trend; IV 91%. Conflicting signals, headline gap risk.",,,
+2026-11-23,AAPL,NO TRADE,0.35,342.56,5,none (watch: Dec11 345/360 call debit spread on reclaim of 348),"TEST RUN. Relative strength and P/C 2.13 contrarian bullish vs MACD rolling over, sitting on 50 SMA in risk-off VIX-36 regime. Mixed.",,,
