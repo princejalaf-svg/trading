@@ -9,10 +9,14 @@ predictions and grades them later, so we can see whether it has any edge.
 
 ## Daily run (what to do when asked to "run the bot")
 
-1. **Setup**: `pip install -q -r requirements.txt`
+1. **Setup**: `python -m pip install -q -r requirements.txt` (use `python -m pip`, plain
+   `pip` can install into a different Python).
 2. **Grade old calls**: `python -m bot.grade` — note the scorecard.
 3. **Fetch data**: `python -m bot.fetch_data` → writes `data/snapshots/<today>.json`.
-   If Yahoo is unreachable, stop and report the error. Never invent numbers.
+   Prices come from Twelve Data when its key is configured (see `price_sources`
+   in the snapshot), otherwise Yahoo. Options chains, earnings and headlines come
+   from Yahoo. Mention in the report if Twelve Data fell back to Yahoo.
+   If all data sources fail, stop and report the error. Never invent numbers.
 4. **Read the snapshot** fully. `quant_signals` is a simple rules-based baseline:
    treat it as one input, not the answer.
 5. **Check news** (WebSearch, if available) for each ticker from the last 48h:

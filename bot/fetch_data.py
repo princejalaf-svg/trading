@@ -16,6 +16,8 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 
+from bot import twelvedata
+
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG = json.loads((ROOT / "config.json").read_text())
 SNAP_DIR = ROOT / "data" / "snapshots"
@@ -163,13 +165,22 @@ def options_summary(tk: yf.Ticker, spot: float) -> dict:
 
 
 # ---------------------------------------------------------------- main
+def price_history(symbol: str) -> tuple[pd.DataFrame, str]:
+    """Twelve Data first (official feed), Yahoo as fallback."""
+    try:
+        return twelvedata.daily_history(symbol), "twelvedata"
+    except Exception as e:
+        print(f"  Twelve Data failed for {symbol} ({e}); falling back to Yahoo")
+    return yf.Ticker(symbol).history(period="1y", auto_adjust=True), "yahoo"
+
+
 def snapshot_ticker(symbol: str) -> dict:
     tk = yf.Ticker(symbol)
-    hist = tk.history(period="1y", auto_adjust=True)
+    hist, source = price_history(symbol)
     if hist.empty:
         return {"symbol": symbol, "error": "no price history"}
     tech = technicals(hist)
-    out = {"symbol": symbol, "technicals": tech}
+    out = {"symbol": symbol, "price_source": source, "technicals": tech}
     try:
         out["options"] = options_summary(tk, tech["price"])
         if out["options"].get("atm_iv") and tech["realized_vol_20d"]:
@@ -200,7 +211,7 @@ def main() -> Path:
     }
     for idx in ("SPY", "QQQ", "^VIX"):
         try:
-            h = yf.Ticker(idx).history(period="3mo")
+            h = yf.Ticker(idx).history(period="3mo") if idx.startswith("^") else price_history(idx)[0]
             c = h["Close"]
             snap["market_context"][idx] = {
                 "last": _f(c.iloc[-1]),
@@ -219,6 +230,7 @@ def main() -> Path:
     from bot.signals import score_all  # local import to avoid cycle
 
     snap["quant_signals"] = score_all(snap)
+    snap["price_sources"] = {s: t.get("price_source") for s, t in snap["tickers"].items()}
     path = SNAP_DIR / f"{date.today().isoformat()}.json"
     path.write_text(json.dumps(snap, indent=2))
     print(f"wrote {path}")
