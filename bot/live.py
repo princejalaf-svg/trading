@@ -294,7 +294,8 @@ def run_poll(tickers, cfg, notify):
             continue
         t0 = time.time()
         try:
-            if t0 - last_ctx >= cfg["context_refresh_sec"] or not w.ctx:
+            missing = any(t not in w.ctx for t in tickers)   # e.g. no bars yet right after the open
+            if t0 - last_ctx >= (30 if missing else cfg["context_refresh_sec"]):
                 _refresh_context(w, syms)
                 last_ctx = t0
             prices = _prices(tickers)
