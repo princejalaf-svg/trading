@@ -26,22 +26,28 @@ Edit `"tickers"` in `config.json`.
 
 ## Live intraday alerts (`bot/live.py`)
 
-A fast, rules-based watcher for market hours. It does not wait on the AI in the loop, so alerts arrive within seconds.
+A tick-driven, rules-based watcher for market hours. Each price update is processed as soon as it
+arrives (about 12 µs of engine time), and there is no AI in the loop.
 
-- Polls Twelve Data real-time prices every ~5 s and 1-minute bars every 60 s.
-  With 3 tickers plus SPY/QQQ that's about 41 credits/min (the Grow plan allows 55).
-- Per ticker it tracks **BULLISH (buy-side trend) / BEARISH (sell-side trend) / NEUTRAL**,
-  scored from price vs VWAP, EMA 9/21, 15-minute momentum, 1-minute RSI, prior-day
-  high/low and the SPY/QQQ direction. It alerts when the state flips and the new state
-  holds for 2 minutes. It also alerts on volatility-scaled 5-minute spikes and on breaks
-  of the prior-day high or low. Volume surges are logged but not pushed.
-- Alerts are printed, appended to `data/live/alerts-<date>.jsonl`, and optionally pushed:
+| Feed | Plan | Typical delay from trade to alert |
+|---|---|---|
+| REST polling (default) | Grow (current) | ~0.5–4 s (all tickers batched every ~3.7 s within 55 credits/min) |
+| WebSocket `--ws` | Pro or above | ~170 ms average (Twelve Data's figure) |
+
+- Signals come from the live price stream itself: time-based EMAs (30 s / 2 min), 60 s momentum,
+  price vs session VWAP, prior-day high/low, and SPY/QQQ direction. 1-minute bars are only used
+  as slow background (VWAP, volatility) and are refreshed every 5 minutes.
+- Per ticker it tracks **BULLISH (buy-side trend) / BEARISH (sell-side trend) / NEUTRAL**. It alerts
+  once a flip holds for 15 s, on volatility-scaled 30-second spikes, and on prior-day high/low breaks.
+- Alerts are printed with their data age, logged to `data/live/alerts-<date>.jsonl`, and pushed
+  without blocking the loop:
 
 ```bash
 export TWELVE_DATA_API_KEY=...            # needed when running on your own machine
 python -m bot.live --ntfy some-long-random-topic   # phone push via the free ntfy app
+python -m bot.live --ws --ntfy some-long-random-topic   # streaming (Pro plan)
 python -m bot.live --webhook <discord-or-slack-webhook-url>
-python -m bot.live --replay 2026-11-20    # replay a past session to see what it would have said
+python -m bot.live --replay 2026-11-20    # replay a past session (1 tick per minute; no spike alerts)
 ```
 
 Tune thresholds with a `"live": {...}` block in `config.json` (see `DEFAULTS` in `bot/live.py`).
