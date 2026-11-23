@@ -303,7 +303,8 @@ def run_poll(tickers, cfg, notify):
                 w.on_tick(s, ts, p)
         except (twelvedata.TwelveDataError, requests.RequestException) as e:
             print(f"[{now:%H:%M:%S}] data error: {e}", flush=True)
-            time.sleep(5)
+            # on a per-minute credit limit, wait for the next minute window
+            time.sleep(61 - datetime.now().second if "429" in str(e) else 5)
         time.sleep(max(0.0, poll - (time.time() - t0)))
 
 

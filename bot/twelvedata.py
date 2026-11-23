@@ -22,6 +22,18 @@ class TwelveDataError(RuntimeError):
 
 
 def _get(path: str, **params) -> dict:
+    """GET with one automatic retry after the per-minute credit limit (HTTP 429) resets."""
+    try:
+        return _get_once(path, **params)
+    except TwelveDataError as e:
+        if "429" not in str(e):
+            raise
+        import time
+        time.sleep(61 - time.localtime().tm_sec)
+        return _get_once(path, **params)
+
+
+def _get_once(path: str, **params) -> dict:
     key = os.environ.get("TWELVE_DATA_API_KEY", "placeholder-replaced-by-proxy")
     r = requests.get(
         f"{BASE}/{path}",
