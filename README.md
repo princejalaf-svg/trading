@@ -23,3 +23,27 @@ contract, target and invalidation level.
 
 ## Changing tickers
 Edit `"tickers"` in `config.json`.
+
+## Live intraday alerts (`bot/live.py`)
+
+A fast, rules-based watcher for market hours. It does not wait on the AI in the loop, so alerts arrive within seconds.
+
+- Polls Twelve Data real-time prices every ~5 s and 1-minute bars every 60 s.
+  With 3 tickers plus SPY/QQQ that's about 41 credits/min (the Grow plan allows 55).
+- Per ticker it tracks **BULLISH (buy-side trend) / BEARISH (sell-side trend) / NEUTRAL**,
+  scored from price vs VWAP, EMA 9/21, 15-minute momentum, 1-minute RSI, prior-day
+  high/low and the SPY/QQQ direction. It alerts when the state flips and the new state
+  holds for 2 minutes. It also alerts on volatility-scaled 5-minute spikes and on breaks
+  of the prior-day high or low. Volume surges are logged but not pushed.
+- Alerts are printed, appended to `data/live/alerts-<date>.jsonl`, and optionally pushed:
+
+```bash
+export TWELVE_DATA_API_KEY=...            # needed when running on your own machine
+python -m bot.live --ntfy some-long-random-topic   # phone push via the free ntfy app
+python -m bot.live --webhook <discord-or-slack-webhook-url>
+python -m bot.live --replay 2026-11-20    # replay a past session to see what it would have said
+```
+
+Tune thresholds with a `"live": {...}` block in `config.json` (see `DEFAULTS` in `bot/live.py`).
+Options data (Yahoo) is about 15 minutes delayed, so live alerts are stock-price based.
+Trend labels describe price action. They are not trade instructions, and this is research only.

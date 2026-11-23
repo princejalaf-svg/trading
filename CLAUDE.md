@@ -50,4 +50,5 @@ predictions and grades them later, so we can see whether it has any edge.
   skew, max pain, unusual activity), earnings date, headlines.
 - `bot/signals.py` — conservative baseline score in [-1, 1].
 - `bot/grade.py` — grades past CALL/PUT calls after `horizon_days` trading days.
+- `bot/live.py` — real-time intraday trend/spike alerts (run during market hours; see README).
 - `config.json` — tickers and parameters. Add a ticker there to monitor it.
