@@ -1,0 +1,7 @@
+{
+  "tickers": ["INTC", "NVDA", "AAPL"],
+  "min_days_to_expiry": 14,
+  "max_days_to_expiry": 45,
+  "prediction_horizon_days": 5,
+  "min_confidence_to_trade": 0.6
+}
