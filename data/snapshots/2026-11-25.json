@@ -1,0 +1,162 @@
+{
+  "generated_at": "2026-11-25T21:46:25+00:00",
+  "market_context": {
+    "SPY": {
+      "last": 716.76,
+      "change_5d_pct": -1.8406,
+      "above_sma50": false
+    },
+    "QQQ": {
+      "last": 633.81,
+      "change_5d_pct": -3.8968,
+      "above_sma50": false
+    },
+    "^VIX": {
+      "last": 28.29,
+      "change_5d_pct": 15.1873,
+      "above_sma50": true
+    }
+  },
+  "tickers": {
+    "INTC": {
+      "symbol": "INTC",
+      "price_source": "twelvedata",
+      "technicals": {
+        "price": 54.453,
+        "change_1d_pct": -0.6332,
+        "change_5d_pct": -0.3969,
+        "change_20d_pct": -42.9991,
+        "sma20": 59.3616,
+        "sma50": 87.6949,
+        "sma200": 87.6587,
+        "above_sma20": false,
+        "above_sma50": false,
+        "above_sma200": false,
+        "rsi14": 35.9136,
+        "macd": -8.821,
+        "macd_signal": -9.9687,
+        "macd_hist": 1.1477,
+        "macd_hist_prev": 1.0657,
+        "bollinger_pct_b": 0.3553,
+        "atr14": 4.8196,
+        "realized_vol_20d": 1.5399,
+        "volume_vs_20d_avg": 0.9555,
+        "high_52w": 140.94,
+        "low_52w": 35.83
+      },
+      "options": {
+        "error": "no options data"
+      },
+      "next_earnings": null,
+      "recent_headlines": []
+    },
+    "NVDA": {
+      "symbol": "NVDA",
+      "price_source": "twelvedata",
+      "technicals": {
+        "price": 149.29,
+        "change_1d_pct": -3.9194,
+        "change_5d_pct": -1.1063,
+        "change_20d_pct": -30.6853,
+        "sma20": 172.477,
+        "sma50": 203.6542,
+        "sma200": 202.8741,
+        "above_sma20": false,
+        "above_sma50": false,
+        "above_sma200": false,
+        "rsi14": 37.4482,
+        "macd": -16.9197,
+        "macd_signal": -16.2449,
+        "macd_hist": -0.6748,
+        "macd_hist_prev": -1.1895,
+        "bollinger_pct_b": 0.2571,
+        "atr14": 15.8321,
+        "realized_vol_20d": 1.2725,
+        "volume_vs_20d_avg": 3.3459,
+        "high_52w": 239.24,
+        "low_52w": 125.53
+      },
+      "options": {
+        "error": "no options data"
+      },
+      "next_earnings": null,
+      "recent_headlines": []
+    },
+    "AAPL": {
+      "symbol": "AAPL",
+      "price_source": "twelvedata",
+      "technicals": {
+        "price": 355.445,
+        "change_1d_pct": 0.3883,
+        "change_5d_pct": 0.8498,
+        "change_20d_pct": 3.3781,
+        "sma20": 348.6648,
+        "sma50": 343.0425,
+        "sma200": 304.4015,
+        "above_sma20": true,
+        "above_sma50": true,
+        "above_sma200": true,
+        "rsi14": 57.7933,
+        "macd": 2.9471,
+        "macd_signal": 3.0955,
+        "macd_hist": -0.1483,
+        "macd_hist_prev": -0.4355,
+        "bollinger_pct_b": 0.7665,
+        "atr14": 8.0286,
+        "realized_vol_20d": 0.2852,
+        "volume_vs_20d_avg": 1.7311,
+        "high_52w": 356.27,
+        "low_52w": 246.63
+      },
+      "options": {
+        "error": "no options data"
+      },
+      "next_earnings": null,
+      "recent_headlines": []
+    }
+  },
+  "quant_signals": {
+    "INTC": {
+      "score": -0.14,
+      "lean": "NO TRADE",
+      "reasons": [
+        "-0.15: price below 20 & 50 SMA (downtrend)",
+        "-0.05: below 200 SMA",
+        "+0.1: MACD histogram positive and rising",
+        "-0.05: RSI 36 bearish range",
+        "-0.05: SPY below 50 SMA",
+        "VIX 28.3 elevated: confidence haircut"
+      ],
+      "warnings": []
+    },
+    "NVDA": {
+      "score": -0.21,
+      "lean": "PUT",
+      "reasons": [
+        "-0.15: price below 20 & 50 SMA (downtrend)",
+        "-0.05: below 200 SMA",
+        "-0.05: RSI 37 bearish range",
+        "-0.05: SPY below 50 SMA",
+        "VIX 28.3 elevated: confidence haircut"
+      ],
+      "warnings": []
+    },
+    "AAPL": {
+      "score": 0.14,
+      "lean": "NO TRADE",
+      "reasons": [
+        "+0.15: price above 20 & 50 SMA (uptrend)",
+        "+0.05: above 200 SMA",
+        "+0.05: RSI 58 bullish range",
+        "-0.05: SPY below 50 SMA",
+        "VIX 28.3 elevated: confidence haircut"
+      ],
+      "warnings": []
+    }
+  },
+  "price_sources": {
+    "INTC": "twelvedata",
+    "NVDA": "twelvedata",
+    "AAPL": "twelvedata"
+  }
+}
