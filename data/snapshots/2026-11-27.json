@@ -1,0 +1,159 @@
+{
+  "generated_at": "2026-11-27T21:46:50+00:00",
+  "market_context": {
+    "SPY": {
+      "last": 728.78,
+      "change_5d_pct": 1.8034,
+      "above_sma50": false
+    },
+    "QQQ": {
+      "last": 650.76,
+      "change_5d_pct": 0.8868,
+      "above_sma50": false
+    },
+    "^VIX": {
+      "last": 23.81,
+      "change_5d_pct": -33.6584,
+      "above_sma50": true
+    }
+  },
+  "tickers": {
+    "INTC": {
+      "symbol": "INTC",
+      "price_source": "twelvedata",
+      "technicals": {
+        "price": 57.845,
+        "change_1d_pct": 6.1961,
+        "change_5d_pct": 3.8137,
+        "change_20d_pct": -37.1728,
+        "sma20": 57.6513,
+        "sma50": 86.6761,
+        "sma200": 87.7065,
+        "above_sma20": true,
+        "above_sma50": false,
+        "above_sma200": false,
+        "rsi14": 40.3791,
+        "macd": -8.1598,
+        "macd_signal": -9.6067,
+        "macd_hist": 1.447,
+        "macd_hist_prev": 1.1488,
+        "bollinger_pct_b": 0.5136,
+        "atr14": 4.7507,
+        "realized_vol_20d": 1.5708,
+        "volume_vs_20d_avg": 0.8692,
+        "high_52w": 140.94,
+        "low_52w": 36.05
+      },
+      "options": {
+        "error": "no options data"
+      },
+      "next_earnings": null,
+      "recent_headlines": []
+    },
+    "NVDA": {
+      "symbol": "NVDA",
+      "price_source": "twelvedata",
+      "technicals": {
+        "price": 150.62,
+        "change_1d_pct": 0.8841,
+        "change_5d_pct": 3.1785,
+        "change_20d_pct": -29.5048,
+        "sma20": 169.3255,
+        "sma50": 202.28,
+        "sma200": 202.677,
+        "above_sma20": false,
+        "above_sma50": false,
+        "above_sma200": false,
+        "rsi14": 38.1892,
+        "macd": -16.349,
+        "macd_signal": -16.2656,
+        "macd_hist": -0.0834,
+        "macd_hist_prev": -0.6741,
+        "bollinger_pct_b": 0.2898,
+        "atr14": 15.3529,
+        "realized_vol_20d": 1.2756,
+        "volume_vs_20d_avg": 2.9476,
+        "high_52w": 239.24,
+        "low_52w": 125.53
+      },
+      "options": {
+        "error": "no options data"
+      },
+      "next_earnings": null,
+      "recent_headlines": []
+    },
+    "AAPL": {
+      "symbol": "AAPL",
+      "price_source": "twelvedata",
+      "technicals": {
+        "price": 358.7,
+        "change_1d_pct": 0.8774,
+        "change_5d_pct": 2.7176,
+        "change_20d_pct": 2.8059,
+        "sma20": 349.161,
+        "sma50": 343.4792,
+        "sma200": 304.8181,
+        "above_sma20": true,
+        "above_sma50": true,
+        "above_sma200": true,
+        "rsi14": 60.3198,
+        "macd": 3.3774,
+        "macd_signal": 3.1536,
+        "macd_hist": 0.2238,
+        "macd_hist_prev": -0.1397,
+        "bollinger_pct_b": 0.8532,
+        "atr14": 7.7736,
+        "realized_vol_20d": 0.2825,
+        "volume_vs_20d_avg": 1.0838,
+        "high_52w": 358.7,
+        "low_52w": 246.63
+      },
+      "options": {
+        "error": "no options data"
+      },
+      "next_earnings": null,
+      "recent_headlines": []
+    }
+  },
+  "quant_signals": {
+    "INTC": {
+      "score": -0.05,
+      "lean": "NO TRADE",
+      "reasons": [
+        "-0.05: below 200 SMA",
+        "+0.1: MACD histogram positive and rising",
+        "-0.05: RSI 40 bearish range",
+        "-0.05: SPY below 50 SMA"
+      ],
+      "warnings": []
+    },
+    "NVDA": {
+      "score": -0.3,
+      "lean": "PUT",
+      "reasons": [
+        "-0.15: price below 20 & 50 SMA (downtrend)",
+        "-0.05: below 200 SMA",
+        "-0.05: RSI 38 bearish range",
+        "-0.05: SPY below 50 SMA"
+      ],
+      "warnings": []
+    },
+    "AAPL": {
+      "score": 0.3,
+      "lean": "CALL",
+      "reasons": [
+        "+0.15: price above 20 & 50 SMA (uptrend)",
+        "+0.05: above 200 SMA",
+        "+0.1: MACD histogram positive and rising",
+        "+0.05: RSI 60 bullish range",
+        "-0.05: SPY below 50 SMA"
+      ],
+      "warnings": []
+    }
+  },
+  "price_sources": {
+    "INTC": "twelvedata",
+    "NVDA": "twelvedata",
+    "AAPL": "twelvedata"
+  }
+}

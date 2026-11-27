@@ -30,7 +30,7 @@ def load() -> list[dict]:
 
 def save(rows: list[dict]) -> None:
     with LOG.open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=FIELDS)
+        w = csv.DictWriter(f, fieldnames=FIELDS, lineterminator="\n")
         w.writeheader()
         w.writerows(rows)
 
